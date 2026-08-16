@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Bunny Virtual Number</title>
+
+    <meta name="description"
+        content="Bunny Virtual Number - Contact our team for virtual number services.">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- PASSWORD SCREEN -->
+
+    <div id="passwordScreen">
+
+        <div class="password-box">
+
+            <div class="lock-icon">🔐</div>
+
+            <h2>Private Access</h2>
+
+            <p>Enter password to continue</p>
+
+            <input
+                type="password"
+                id="passwordInput"
+                placeholder="Enter password"
+            >
+
+            <button id="unlockButton">
+                Unlock
+            </button>
+
+            <div id="passwordError"></div>
+
+        </div>
+
+    </div>
+
+
+    <!-- NAVBAR -->
+
+    <nav class="container">
+
+        <div class="logo">
+            🐰 Bunny <span>Virtual Number</span>
+        </div>
+
+        <a
+            class="nav-button"
+            href="https://wa.me/6283164489573"
+            target="_blank"
+        >
+            Contact
+        </a>
+
+    </nav>
+
+
+    <!-- MAIN -->
+
+    <main class="container">
+
+        <!-- HERO -->
+
+        <section class="hero">
+
+            <div class="badge">
+                ⚡ Virtual Number Service
+            </div>
+
+            <h1>
+                Need a Virtual Number?
+            </h1>
+
+            <p>
+                Looking for a virtual number?
+                Contact Bunny Virtual Number and
+                we'll help you find the right option.
+            </p>
+
+            <a
+                class="cta"
+                href="https://wa.me/6283164489573?text=Hello%20Bunny%20Virtual%20Number%2C%20I%20need%20a%20virtual%20number."
+                target="_blank"
+            >
+                💬 Get Your Number on WhatsApp
+            </a>
+
+        </section>
+
+
+        <!-- PHONE -->
+
+        <section class="visual">
+
+            <div class="phone">
+
+                <div class="phone-screen">
+
+                    <div class="phone-title">
+                        Bunny Chat
+                    </div>
+
+                    <div class="chat">
+                        Hello 👋
+                    </div>
+
+                    <div class="chat green">
+                        Hi! How can we help?
+                    </div>
+
+                    <div class="chat">
+                        I need a virtual number.
+                    </div>
+
+                    <div class="chat green">
+                        Sure! Contact us on WhatsApp.
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- FEATURES -->
+
+        <section class="features">
+
+            <h2 class="section-title">
+                Why Bunny?
+            </h2>
+
+            <div class="cards">
+
+                <div class="card">
+
+                    <div class="card-icon">
+                        🌍
+                    </div>
+
+                    <h3>
+                        Multiple Options
+                    </h3>
+
+                    <p>
+                        Explore different virtual number
+                        options according to your needs.
+                    </p>
+
+                </div>
+
+
+                <div class="card">
+
+                    <div class="card-icon">
+                        💬
+                    </div>
+
+                    <h3>
+                        WhatsApp Support
+                    </h3>
+
+                    <p>
+                        Contact our team directly through
+                        WhatsApp for assistance.
+                    </p>
+
+                </div>
+
+
+                <div class="card">
+
+                    <div class="card-icon">
+                        ⚡
+                    </div>
+
+                    <h3>
+                        Simple Process
+                    </h3>
+
+                    <p>
+                        Contact us, tell us what you need,
+                        and we'll guide you through the options.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <p>
+            © 2026 Bunny Virtual Number
+        </p>
+
+    </footer>
+
+
+    <!-- PASSWORD SCRIPT -->
+
+    <script>
+
+        document
+            .getElementById("unlockButton")
+            .addEventListener("click", function () {
+
+                var password =
+                    document.getElementById("passwordInput").value;
+
+                if (password === "Siddharth") {
+
+                    document
+                        .getElementById("passwordScreen")
+                        .style.display = "none";
+
+                } else {
+
+                    document
+                        .getElementById("passwordError")
+                        .textContent = "Incorrect password";
+
+                }
+
+            });
+
+
+        document
+            .getElementById("passwordInput")
+            .addEventListener("keydown", function (event) {
+
+                if (event.key === "Enter") {
+
+                    document
+                        .getElementById("unlockButton")
+                        .click();
+
+                }
+
+            });
+
+    </script>
+
+</body>
+
+</html>

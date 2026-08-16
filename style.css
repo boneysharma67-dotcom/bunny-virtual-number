@@ -1,0 +1,789 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #05070b;
+    color: #fff;
+    overflow-x: hidden;
+}
+
+/* =========================
+   ANIMATED BACKGROUND
+========================= */
+
+body::before,
+body::after {
+    content: "";
+    position: fixed;
+    width: 420px;
+    height: 420px;
+    border-radius: 50%;
+    filter: blur(110px);
+    opacity: .2;
+    pointer-events: none;
+    z-index: -1;
+}
+
+body::before {
+    background: #00ff9d;
+    top: -180px;
+    left: -150px;
+    animation: bgOne 9s ease-in-out infinite alternate;
+}
+
+body::after {
+    background: #008cff;
+    right: -180px;
+    bottom: -180px;
+    animation: bgTwo 11s ease-in-out infinite alternate;
+}
+
+@keyframes bgOne {
+    to {
+        transform: translate(140px, 120px) scale(1.3);
+    }
+}
+
+@keyframes bgTwo {
+    to {
+        transform: translate(-130px, -110px) scale(1.3);
+    }
+}
+
+/* =========================
+   NAVBAR
+========================= */
+
+nav.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 6%;
+    animation: navIn 1s ease both;
+}
+
+@keyframes navIn {
+    from {
+        opacity: 0;
+        transform: translateY(-25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.logo {
+    animation: logoFloat 3s ease-in-out infinite;
+    transition: .4s ease;
+}
+
+.logo:hover {
+    transform: scale(1.08);
+    filter: drop-shadow(0 0 18px #00ff9d);
+}
+
+@keyframes logoFloat {
+    0%,100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+/* =========================
+   NAV BUTTON
+========================= */
+
+.nav-button {
+    position: relative;
+    overflow: hidden;
+
+    padding: 11px 20px;
+    border-radius: 30px;
+
+    color: #fff;
+    text-decoration: none;
+
+    border: 1px solid rgba(0,255,160,.4);
+
+    background: rgba(0,255,160,.08);
+
+    transition: .35s ease;
+}
+
+.nav-button:hover {
+    transform: translateY(-3px);
+    background: rgba(0,255,160,.18);
+    box-shadow: 0 0 25px rgba(0,255,160,.4);
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    text-align: center;
+    padding: 80px 20px 40px;
+
+    animation: heroIn 1.2s cubic-bezier(.16,1,.3,1);
+}
+
+@keyframes heroIn {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+        filter: blur(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+    }
+}
+
+/* Badge */
+
+.badge {
+    display: inline-block;
+
+    padding: 8px 17px;
+    margin-bottom: 22px;
+
+    border-radius: 30px;
+
+    background: rgba(0,255,160,.08);
+    border: 1px solid rgba(0,255,160,.35);
+
+    color: #00ff9d;
+
+    animation:
+        badgeIn 1s .2s both,
+        badgePulse 2.5s infinite;
+}
+
+@keyframes badgeIn {
+    from {
+        opacity: 0;
+        transform: scale(.7);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes badgePulse {
+    50% {
+        box-shadow: 0 0 25px rgba(0,255,160,.25);
+    }
+}
+
+/* CTA */
+
+.cta {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 17px 32px;
+    margin-top: 20px;
+
+    border-radius: 50px;
+
+    background: linear-gradient(
+        135deg,
+        #00b84f,
+        #00e676
+    );
+
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 0 20px rgba(0,230,118,.45),
+        0 15px 40px rgba(0,0,0,.35);
+
+    animation:
+        ctaIn 1s .7s both,
+        ctaPulse 2.5s 2s infinite;
+
+    transition: .35s ease;
+}
+
+@keyframes ctaIn {
+    from {
+        opacity: 0;
+        transform: translateY(25px) scale(.75);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes ctaPulse {
+    50% {
+        box-shadow:
+            0 0 42px rgba(0,230,118,.85),
+            0 15px 50px rgba(0,0,0,.4);
+    }
+}
+
+.cta:hover {
+    transform: translateY(-7px) scale(1.06);
+}
+
+/* CTA shine */
+
+.cta::before {
+    content: "";
+
+    position: absolute;
+    top: 0;
+    left: -130%;
+
+    width: 70%;
+    height: 100%;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,.5),
+        transparent
+    );
+
+    transform: skewX(-25deg);
+
+    animation: shine 3.5s infinite;
+}
+
+@keyframes shine {
+    0% {
+        left: -130%;
+    }
+
+    45%,100% {
+        left: 140%;
+    }
+}
+
+/* =========================
+   PHONE VISUAL
+========================= */
+
+.visual {
+    display: flex;
+    justify-content: center;
+    margin: 60px auto;
+
+    animation: phoneIn 1.3s .4s both;
+}
+
+.phone {
+    position: relative;
+
+    animation: phoneFloat 4s ease-in-out infinite;
+
+    transition: .4s ease;
+}
+
+.phone:hover {
+    transform: rotate(-2deg) scale(1.04);
+}
+
+@keyframes phoneIn {
+    from {
+        opacity: 0;
+        transform: scale(.7) translateY(50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+@keyframes phoneFloat {
+    0%,100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-14px);
+    }
+}
+
+/* Phone glow */
+
+.phone::before {
+    content: "";
+    position: absolute;
+
+    inset: -25px;
+
+    border-radius: 50%;
+
+    background: rgba(0,255,160,.12);
+
+    filter: blur(35px);
+
+    z-index: -1;
+
+    animation: phoneGlow 2.5s ease-in-out infinite alternate;
+}
+
+@keyframes phoneGlow {
+    to {
+        transform: scale(1.15);
+        opacity: .8;
+    }
+}
+
+/* =========================
+   CHAT MESSAGES
+========================= */
+
+.chat {
+    animation: messageIn .8s ease both;
+}
+
+.chat.green {
+    animation-delay: .3s;
+}
+
+@keyframes messageIn {
+    from {
+        opacity: 0;
+        transform: translateX(25px) scale(.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+    }
+}
+
+/* =========================
+   FEATURES
+========================= */
+
+.features {
+    padding: 70px 6%;
+}
+
+.section-title {
+    text-align: center;
+
+    margin-bottom: 40px;
+
+    font-size: clamp(30px, 6vw, 48px);
+
+    background: linear-gradient(
+        90deg,
+        #fff,
+        #00ff9d,
+        #00c8ff,
+        #fff
+    );
+
+    background-size: 300%;
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    color: transparent;
+
+    animation: gradientText 5s linear infinite;
+}
+
+@keyframes gradientText {
+    to {
+        background-position: 300%;
+    }
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.card {
+    position: relative;
+
+    padding: 30px;
+
+    border-radius: 24px;
+
+    background: rgba(255,255,255,.05);
+
+    border: 1px solid rgba(255,255,255,.1);
+
+    backdrop-filter: blur(15px);
+
+    transition:
+        transform .4s ease,
+        box-shadow .4s ease,
+        border-color .4s ease;
+
+    animation: cardReveal 1s ease both;
+}
+
+.card:nth-child(2) {
+    animation-delay: .15s;
+}
+
+.card:nth-child(3) {
+    animation-delay: .3s;
+}
+
+@keyframes cardReveal {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.card:hover {
+    transform: translateY(-12px);
+
+    border-color: rgba(0,255,160,.5);
+
+    box-shadow:
+        0 20px 50px rgba(0,0,0,.4),
+        0 0 30px rgba(0,255,160,.12);
+}
+
+/* Icons */
+
+.card-icon {
+    font-size: 42px;
+    margin-bottom: 18px;
+
+    display: inline-block;
+
+    animation:
+        iconFloat 3s ease-in-out infinite,
+        iconGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes iconFloat {
+    0%,100% {
+        transform: translateY(0) rotate(0);
+    }
+
+    50% {
+        transform: translateY(-8px) rotate(4deg);
+    }
+}
+
+@keyframes iconGlow {
+    from {
+        filter: drop-shadow(0 0 2px rgba(0,255,160,.2));
+    }
+
+    to {
+        filter: drop-shadow(0 0 15px rgba(0,255,160,.7));
+    }
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    text-align: center;
+    padding: 40px 20px;
+    color: rgba(255,255,255,.5);
+
+    animation: fadeFooter 1.5s ease both;
+}
+
+@keyframes fadeFooter {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 800px) {
+
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+    .hero {
+        padding-top: 55px;
+    }
+
+    .features {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
+@media (max-width: 500px) {
+
+    nav.container {
+        padding: 16px 20px;
+    }
+
+    .hero {
+        padding-top: 45px;
+    }
+
+    .cta {
+        width: 100%;
+        max-width: 320px;
+    }
+}
+/* ===== PREMIUM WHATSAPP CTA ===== */
+
+.cta {
+    isolation: isolate;
+}
+
+.cta::after {
+    content: "";
+    position: absolute;
+    inset: 2px;
+    border-radius: inherit;
+    border: 1px solid rgba(255,255,255,.25);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.cta {
+    animation:
+        ctaIn 1s .7s both,
+        ctaPulse 2.5s 2s infinite,
+        ctaFloat 4s 4s ease-in-out infinite;
+}
+
+@keyframes ctaFloat {
+    0%,100% {
+        margin-top: 20px;
+    }
+
+    50% {
+        margin-top: 14px;
+    }
+}
+
+.cta:hover {
+    box-shadow:
+        0 0 25px rgba(0,255,120,.7),
+        0 0 60px rgba(0,255,120,.35),
+        0 20px 50px rgba(0,0,0,.45);
+}
+
+.cta:active {
+    transform: scale(.94);
+}
+
+/* WhatsApp icon bounce */
+.cta {
+    font-size: 18px;
+}
+
+.cta:hover {
+    letter-spacing: .3px;
+}
+/* PASSWORD SCREEN */
+
+#passwordScreen {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    background: #030509;
+
+    background:
+        radial-gradient(circle at 20% 20%, rgba(0,255,157,.18), transparent 35%),
+        radial-gradient(circle at 80% 80%, rgba(0,150,255,.18), transparent 35%),
+        #030509;
+
+    animation: passwordScreenIn .8s ease;
+}
+
+.password-box {
+    width: 100%;
+    max-width: 390px;
+
+    padding: 40px 28px;
+
+    text-align: center;
+
+    background: rgba(255,255,255,.07);
+
+    border: 1px solid rgba(255,255,255,.15);
+
+    border-radius: 28px;
+
+    box-shadow:
+        0 30px 80px rgba(0,0,0,.6),
+        0 0 40px rgba(0,255,157,.12);
+
+    backdrop-filter: blur(20px);
+
+    animation: passwordBoxIn .8s cubic-bezier(.16,1,.3,1);
+}
+
+.lock-icon {
+    font-size: 55px;
+    margin-bottom: 15px;
+
+    animation: lockFloat 3s ease-in-out infinite;
+}
+
+.password-box h2 {
+    color: white;
+    font-size: 30px;
+    margin-bottom: 8px;
+}
+
+.password-box p {
+    color: rgba(255,255,255,.65);
+    margin-bottom: 20px;
+}
+
+#passwordInput {
+    width: 100%;
+
+    padding: 15px 18px;
+
+    border: 1px solid rgba(255,255,255,.15);
+
+    border-radius: 14px;
+
+    outline: none;
+
+    background: rgba(0,0,0,.35);
+
+    color: white;
+
+    font-size: 16px;
+}
+
+#passwordInput:focus {
+    border-color: #00ff9d;
+
+    box-shadow: 0 0 20px rgba(0,255,157,.2);
+}
+
+#unlockButton {
+    width: 100%;
+
+    margin-top: 15px;
+
+    padding: 15px;
+
+    border: none;
+
+    border-radius: 14px;
+
+    color: white;
+
+    background: linear-gradient(
+        135deg,
+        #00b84f,
+        #00e676
+    );
+
+    font-size: 16px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow: 0 0 20px rgba(0,230,118,.35);
+
+    transition: .3s ease;
+}
+
+#unlockButton:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 0 35px rgba(0,230,118,.75);
+}
+
+#passwordError {
+    min-height: 20px;
+
+    margin-top: 14px;
+
+    color: #ff6b6b;
+
+    font-size: 14px;
+}
+
+@keyframes passwordScreenIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes passwordBoxIn {
+    from {
+        opacity: 0;
+        transform: translateY(40px) scale(.9);
+        filter: blur(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: blur(0);
+    }
+}
+
+@keyframes lockFloat {
+    0%,100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+}
